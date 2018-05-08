@@ -1,5 +1,7 @@
 <?php
 
+namespace Flextype;
+
 /**
  *
  * Flextype Sitemap Plugin
@@ -11,17 +13,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Flextype;
+use Flextype\Component\{Event\Event, Http\Http, Arr\Arr};
 
-use Url;
-use Arr;
-use Response;
-use Request;
-
-if (Url::getUriSegment(0) == 'sitemap.xml') {
-    Events::addListener('onPageBeforeRender', function () {
-        Response::status(200);
-        Request::setHeaders('Content-Type: text/xml; charset=utf-8');
+if (Http::getUriSegment(0) == 'sitemap.xml') {
+    Event::addListener('onPageBeforeRender', function () {
+        Http::setResponseStatus(200);
+        Http::setRequestHeaders('Content-Type: text/xml; charset=utf-8');
 
         $_pages = Pages::getPages('', false, 'date');
 
@@ -33,6 +30,6 @@ if (Url::getUriSegment(0) == 'sitemap.xml') {
 
         include 'views/sitemap.php';
 
-        Request::shutdown();
+        Http::requestShutdown();
     });
 }
