@@ -15,12 +15,15 @@ namespace Flextype;
 
 use Flextype\Component\{Event\Event, Http\Http, Arr\Arr};
 
-if (Http::getUriSegment(0) == 'sitemap.xml') {
-    Event::addListener('onPageBeforeRender', function () {
+//
+// Add listner for onCurrentPageAfterProcessed event
+//
+Event::addListener('onCurrentPageBeforeLoaded', function () {
+    if (Http::getUriSegment(0) == 'sitemap.xml') {
         Http::setResponseStatus(200);
         Http::setRequestHeaders('Content-Type: text/xml; charset=utf-8');
 
-        $_pages = Pages::getPages('', false, 'date');
+        $_pages = Content::getPages('', false, 'date');
 
         foreach ($_pages as $page) {
             if ($page['slug'] !== '404') {
@@ -29,7 +32,6 @@ if (Http::getUriSegment(0) == 'sitemap.xml') {
         }
 
         include 'views/sitemap.php';
-
         Http::requestShutdown();
-    });
-}
+    }
+});
