@@ -13,7 +13,9 @@ namespace Flextype;
  * file that was distributed with this source code.
  */
 
-use Flextype\Component\{Event\Event, Http\Http, Arr\Arr};
+use Flextype\Component\Event\Event;
+use Flextype\Component\Http\Http;
+use Flextype\Component\Arr\Arr;
 
 //
 // Add listner for onCurrentPageAfterProcessed event
@@ -23,15 +25,16 @@ Event::addListener('onCurrentPageBeforeLoaded', function () {
         Http::setResponseStatus(200);
         Http::setRequestHeaders('Content-Type: text/xml; charset=utf-8');
 
-        $_pages = Content::getPages('', false, 'date');
-
-        foreach ($_pages as $page) {
-            if ($page['slug'] !== '404') {
+        foreach (Content::getPages('', false, 'date') as $page) {
+            if ($page['slug'] !== '404' && !(isset($page['visibility']) && ($page['visibility'] === 'draft' || $page['visibility'] === 'hidden'))) {
                 $pages[] = $page;
             }
         }
 
-        include 'views/sitemap.php';
+        Themes::view('sitemap/views/sitemap')
+            ->assign('pages', $pages)
+            ->display();
+
         Http::requestShutdown();
     }
 });
