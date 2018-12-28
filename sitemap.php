@@ -20,19 +20,19 @@ use Flextype\Component\Arr\Arr;
 //
 // Add listner for onCurrentPageAfterProcessed event
 //
-Event::addListener('onCurrentPageBeforeLoaded', function () {
+Event::addListener('onCurrentEntryBeforeLoaded', function () {
     if (Http::getUriSegment(0) == 'sitemap.xml') {
         Http::setResponseStatus(200);
         Http::setRequestHeaders('Content-Type: text/xml; charset=utf-8');
 
-        foreach (Content::getPages('', false, 'date') as $page) {
-            if ($page['slug'] !== '404' && !(isset($page['visibility']) && ($page['visibility'] === 'draft' || $page['visibility'] === 'hidden'))) {
-                $pages[] = $page;
+        foreach (Entries::getEntries('', 'date') as $entry) {
+            if ($entry['slug'] !== '404' && !(isset($entry['visibility']) && ($entry['visibility'] === 'draft' || $entry['visibility'] === 'hidden'))) {
+                $entries[] = $entry;
             }
         }
 
         Themes::view('sitemap/views/sitemap')
-            ->assign('pages', $pages)
+            ->assign('entries', $entries)
             ->display();
 
         Http::requestShutdown();
