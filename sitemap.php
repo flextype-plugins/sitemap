@@ -25,7 +25,7 @@ Event::addListener('onCurrentEntryBeforeLoaded', function () {
         Http::setResponseStatus(200);
         Http::setRequestHeaders('Content-Type: text/xml; charset=utf-8');
 
-        foreach (Entries::getEntries('', 'date') as $entry) {
+        foreach (Entries::getEntries('', 'date', 'DESC', null, null, true) as $entry) {
             if ($entry['slug'] !== '404' && !(isset($entry['visibility']) && ($entry['visibility'] === 'draft' || $entry['visibility'] === 'hidden'))) {
                 $entries[] = $entry;
             }
