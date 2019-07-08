@@ -21,7 +21,7 @@ class SitemapController extends Controller {
      */
     public function index(Request $request, Response $response) : Response
     {
-        $_entries = $this->entries->fetchAll('', 'date', 'DESC', null, null, true);
+        $_entries = $this->entries->fetchAll('', ['recursive' => true, 'order_by' => ['field' => 'date', 'direction' => 'desc']]);
         $entries  = [];
 
         foreach ($_entries as $entry) {
@@ -29,6 +29,8 @@ class SitemapController extends Controller {
                 $entries[] = $entry;
             }
         }
+
+        $response = $response->withHeader('Content-Type', 'application/xml');
 
         return $this->view->render(
             $response,
