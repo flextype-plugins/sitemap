@@ -11,7 +11,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  */
 class SitemapController extends Controller {
 
-
     /**
      * Index page
      *
@@ -21,7 +20,7 @@ class SitemapController extends Controller {
      */
     public function index(Request $request, Response $response) : Response
     {
-        $_entries = $this->entries->fetchAll('', ['recursive' => true, 'order_by' => ['field' => 'date', 'direction' => 'desc']]);
+        $_entries = $this->entries->fetchAll('', ['recursive' => true, 'order_by' => ['field' => 'published_at', 'direction' => 'desc']]);
         $entries  = [];
 
         foreach ($_entries as $entry) {

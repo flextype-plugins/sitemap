@@ -1,3 +1,6 @@
+# v1.6.0, 2019-09-15
+* Updates for Flextype 0.9.4
+
 # v1.5.0, 2019-07-08
 * Updates for Flextype 0.9.3
 * Fixed issue with response headers

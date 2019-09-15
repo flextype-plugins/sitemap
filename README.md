@@ -1,6 +1,6 @@
 # Sitemap Plugin for [Flextype](http://flextype.org/)
-![version](https://img.shields.io/badge/version-1.5.0-brightgreen.svg?style=flat-square "Version")
-![Flextype](https://img.shields.io/badge/Flextype-0.9.3-green.svg?style=flat-square "Flextype Version")
+![version](https://img.shields.io/badge/version-1.6.0-brightgreen.svg?style=flat-square "Version")
+![Flextype](https://img.shields.io/badge/Flextype-0.9.4-green.svg?style=flat-square "Flextype Version")
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/flextype-plugins/tiny-url/blob/master/LICENSE.txt)
 
 Sitemap plugin provide automatically generated XML sitemap for Flextype.
@@ -11,11 +11,9 @@ Unzip plugin to the folder `/site/plugins/`
 ## Settings
 enabled: true or false to disable the plugin
 
-```json
-{
-    "enabled": true
-}
+```yaml
+enabled: true
 ```
 
-## License
-See [LICENSE](https://github.com/flextype-plugins/sitemap/blob/master/LICENSE)
+## LICENSE
+[The MIT License (MIT)](https://github.com/flextype-plugins/sitemap/blob/master/LICENSE) Copyright (c) 2018-2019 [Sergey Romanenko](https://github.com/Awilum)
