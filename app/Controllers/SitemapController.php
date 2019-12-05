@@ -20,12 +20,14 @@ class SitemapController extends Controller {
      */
     public function index(Request $request, Response $response) : Response
     {
-        $_entries = $this->entries->fetchAll('', ['recursive' => true, 'order_by' => ['field' => 'published_at', 'direction' => 'desc']]);
-        $entries  = [];
+        $sitemap  = [];
+        $entries = $this->entries->fetch('', ['recursive' => true, 'order_by' => ['field' => 'published_at', 'direction' => 'desc']]);
 
-        foreach ($_entries as $entry) {
-            if (!(isset($entry['visibility']) && ($entry['visibility'] === 'draft' || $entry['visibility'] === 'hidden'))) {
-                $entries[] = $entry;
+        foreach ($entries as $entry) {
+
+            if (!((isset($entry['visibility']) && ($entry['visibility'] === 'draft' || $entry['visibility'] === 'hidden')) ||
+                (isset($entry['routable']) && ($entry['routable'] === false)))) {
+                    $sitemap[] = $entry;
             }
         }
 
@@ -35,7 +37,7 @@ class SitemapController extends Controller {
             $response,
             'plugins/sitemap/views/templates/index.html',
             [
-                'entries' => $entries
+                'sitemap' => $sitemap
             ]);
     }
 }
