@@ -6,10 +6,10 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
- * @property View $view
+ * @property Twig $twig
  * @property Entries $entries
  */
-class SitemapController extends Controller {
+class SitemapController extends Container {
 
     /**
      * Index page
@@ -33,9 +33,9 @@ class SitemapController extends Controller {
 
         $response = $response->withHeader('Content-Type', 'application/xml');
 
-        return $this->view->render(
+        return $this->twig->render(
             $response,
-            'plugins/sitemap/views/templates/index.html',
+            'plugins/sitemap/templates/index.html',
             [
                 'sitemap' => $sitemap
             ]);

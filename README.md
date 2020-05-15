@@ -8,7 +8,7 @@ Sitemap plugin provide automatically generated XML sitemap for Flextype.
 
 ## DEPENDENCIES
 
-The following dependencies need to be installed for Themes Admin Plugin.
+The following dependencies need to be installed for Sitemap Plugin.
 
 | Item | Version | Download |
 |---|---|---|
