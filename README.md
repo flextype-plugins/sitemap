@@ -64,7 +64,7 @@ sitemap:
 ```yaml
 additions:
   -
-    location: something-special
+    loc: something-special
     lastmod: '2020-04-16'
     changefreq: hourly
     priority: 0.3
