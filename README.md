@@ -6,20 +6,31 @@
 
 Sitemap plugin provide automatically generated XML sitemap for Flextype.
 
-## DEPENDENCIES
+## Dependencies
 
-The following dependencies need to be installed for Sitemap Plugin.
+The following dependencies need to be downloaded and installed for Sitemap Plugin.
 
 | Item | Version | Download |
 |---|---|---|
 | [flextype](https://github.com/flextype/flextype) | 0.9.8 | [download](https://github.com/flextype/flextype/releases) |
 | [twig](https://github.com/flextype-plugins/twig) | >=1.0.0 | [download](https://github.com/flextype-plugins/twig/releases) |
 
-## INSTALLATION
+## Installation
 
 1. Download & Install all required dependencies.
 2. Create new folder `/project/plugins/sitemap`
-3. Download Themes Admin Plugin and unzip plugin content to the folder `/project/plugins/sitemap`
+3. Download Sitemap Plugin and unzip plugin content to the folder `/project/plugins/sitemap`
+
+## Documentation
+
+### Settings
+
+| Key | Value | Description |
+|---|---|---|
+| enabled | true | true or false to disable the plugin |
+| priority | 95 | sitemap plugin priority |
+| route | sitemap.xml | sitemap route |
+| ignore |  | List of slug's to ignore  |
 
 ## LICENSE
 [The MIT License (MIT)](https://github.com/flextype-plugins/sitemap/blob/master/LICENSE.txt)
