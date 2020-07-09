@@ -35,6 +35,23 @@ The following dependencies need to be downloaded and installed for Sitemap Plugi
 | default.changefreq | daily | How frequently the page is likely to change. This value provides general information to search engines and may not correlate exactly to how often they crawl the page. Valid values are: always, hourly, daily, weekly, monthly, yearly, never. More info in |
 | default.priority | 1 | The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This value does not affect how your pages are compared to pages on other sites—it only lets the search engines know which pages you deem most important for the crawlers. The default priority of a page is 1. |
 
+### Ignore entries
+
+You can ignore your specific entries by providing a list of slug's to ignore.
+
+```yaml
+ignore:
+  - /blog/blog-post-to-ignore
+  - /ignore-this-route
+```
+
+You can also use a entry Frontmatter to signal that the sitemap should ignore it:
+```yaml
+sitemap:
+    ignore: true
+```
+
+
 ## LICENSE
 [The MIT License (MIT)](https://github.com/flextype-plugins/sitemap/blob/master/LICENSE.txt)
 Copyright (c) 2018-2020 [Sergey Romanenko](https://github.com/Awilum)
