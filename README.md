@@ -51,7 +51,7 @@ sitemap:
   ignore: true
 ```
 
-### Set default values entry(entries)
+### Set default values for entry(entries)
 
 ```yaml
 sitemap:
