@@ -1,10 +1,11 @@
 <?php
 
-namespace Flextype;
+namespace Flextype\Plugin\Sitemap\Controllers;
 
-use Flextype\Component\Arr\Arr;
+use Flextype\Component\Arrays\Arrays;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Flextype\App\Foundation\Container;
 
 /**
  * @property Twig $twig
@@ -30,9 +31,8 @@ class SitemapController extends Container {
     public function index(Request $request, Response $response) : Response
     {
         $sitemap  = [];
-        $entries = $this->entries->fetch('', ['recursive' => true,
-                                              'order_by' => ['field' => 'modified_at',
-                                                             'direction' => 'desc']]);
+
+        $entries = collect($this->entries->fetchCollection('', true))->orderBy('modified_at', 'ASC')->all();
 
         foreach ($entries as $entry) {
 
