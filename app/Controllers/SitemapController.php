@@ -32,7 +32,7 @@ class SitemapController extends Container {
     {
         $sitemap  = [];
 
-        $entries = collect($this->entries->fetchCollection('', true))->orderBy('modified_at', 'ASC')->all();
+        $entries = collect($this->entries->fetchCollection('', ['depth' => '>0']))->orderBy('modified_at', 'ASC')->all();
 
         foreach ($entries as $entry) {
 
