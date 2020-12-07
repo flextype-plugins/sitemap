@@ -37,7 +37,7 @@ class SitemapController
     {
         $sitemap  = [];
 
-        $entries = collect(flextype('entries')->fetchCollection('', ['depth' => '>0']))->orderBy('modified_at', 'ASC')->all();
+        $entries = arrays(flextype('entries')->fetchCollection('', ['depth' => '>0']))->sortBy('modified_at', 'ASC')->all();
 
         foreach ($entries as $entry) {
 
