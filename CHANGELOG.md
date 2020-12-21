@@ -1,3 +1,10 @@
+<a name="2.6.1"></a>
+# [2.6.1](https://github.com/flextype-plugins/sitemap/compare/v2.6.0...v2.6.1) (2020-12-21)
+
+### Bug Fixes
+
+* **core** fix issues with fetch entries collection.
+
 <a name="2.6.0"></a>
 # [2.6.0](https://github.com/flextype-plugins/sitemap/compare/v2.5.0...v2.6.0) (2020-12-20)
 
