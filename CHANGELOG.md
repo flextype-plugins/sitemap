@@ -1,3 +1,12 @@
+<a name="2.7.0"></a>
+# [2.7.0](https://github.com/flextype-plugins/sitemap/compare/v2.6.1...v2.7.0) (2020-12-30)
+
+### Features
+
+* **core** update code base for new Flextype 0.9.14
+* **core** Moving to PHP 7.4
+* **core** use new TWIG Plugin 1.7.0
+
 <a name="2.6.1"></a>
 # [2.6.1](https://github.com/flextype-plugins/sitemap/compare/v2.6.0...v2.6.1) (2020-12-21)
 
