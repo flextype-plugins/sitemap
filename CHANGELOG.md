@@ -3,7 +3,7 @@
 
 ### Features
 
-* **core** update code base for new Flextype 0.9.14
+* **core** update code base for new Flextype 0.9.15
 
 <a name="2.7.0"></a>
 # [2.7.0](https://github.com/flextype-plugins/sitemap/compare/v2.6.1...v2.7.0) (2020-12-30)
