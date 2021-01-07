@@ -28,7 +28,7 @@ The following dependencies need to be downloaded and installed for Sitemap Plugi
 | Key | Value | Description |
 |---|---|---|
 | enabled | true | true or false to disable the plugin |
-| priority | 95 | sitemap plugin priority |
+| priority | 100 | sitemap plugin priority |
 | route | sitemap.xml | sitemap route |
 | ignore | [] | List of entries to ignore |
 | additions | [] | List of additions to add |
