@@ -10,8 +10,8 @@ documentation: https://github.com/flextype-plugins/sitemap
 changelog: https://github.com/flextype-plugins/sitemap/blob/master/CHANGELOG.md
 bugs: https://github.com/flextype-plugins/sitemap/issues
 icon:
-  name: map-marked-alt
-  set: "fontawesome|solid"
+  name: map
+  set: bootstrap
 license: MIT
 
 dependencies:
