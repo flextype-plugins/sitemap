@@ -74,7 +74,7 @@ additions:
 ### Dynamically adding entry(entries) to the sitemap
 
 ```php
-flextype('emitter')->addListener('onSitemapAfterInitialized', function() {
+emitter()->addListener('onSitemapAfterInitialized', function() {
     Flextype\Plugin\Sitemap\Controllers\SitemapController::$sitemap[] = ['loc' => 'something-special-to-add',
                                                'lastmod' => '03-07-2020 09:46',
                                                'changefreq' => 'daily',
