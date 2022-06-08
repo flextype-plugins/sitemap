@@ -24,6 +24,6 @@ The following dependencies need to be downloaded and installed for Sitemap Plugi
 ## Resources
 * [Documentation](https://awilum.github.io/flextype/downloads/extend/plugins/sitemap)
 
-## LICENSE
+## License
 [The MIT License (MIT)](https://github.com/flextype-plugins/sitemap/blob/master/LICENSE.txt)
 Copyright (c) [Sergey Romanenko](https://github.com/Awilum)
