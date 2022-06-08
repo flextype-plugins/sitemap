@@ -2,19 +2,12 @@
 
 namespace Flextype\Plugin\Sitemap\Controllers;
 
+use Glowy\Arrays\Arrays as Collection;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class SitemapController
 {
-    /**
-     * Current $sitemap data array
-     *
-     * @var array
-     * @access public
-     */
-    public static $sitemap = [];
-
     /**
      * Index page
      *
@@ -24,7 +17,7 @@ class SitemapController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $sitemap  = [];
+        $sitemap = [];
 
         $entries = entries()->fetch('', ['collection' => true, 'find' => ['depth' => '> 0']])
                             ->sortBy('modified_at', 'asc')
@@ -83,18 +76,18 @@ class SitemapController
         }
 
         // Set entry to the SitemapController class property $sitemap
-        self::$sitemap = $sitemap;
+        registry()->set('plugins.sitemap.items', $sitemap);
 
         // Run event onSitemapAfterInitialized
         emitter()->emit('onSitemapAfterInitialized');
-
+        
         // Set response header
         $response = $response->withHeader('Content-Type', 'application/xml');
 
         $renderedTemplate = twig()->fetch(
             'plugins/sitemap/views/templates/index.html',
             [
-                'sitemap' => self::$sitemap
+                'sitemap' => registry()->get('plugins.sitemap.items')
             ]);
            
         $response->getBody()->write($renderedTemplate);
