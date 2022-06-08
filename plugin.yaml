@@ -4,7 +4,7 @@ description: Provide automatically generated XML sitemap.
 author:
   name: Sergey Romanenko
   email: awilum@msn.com
-  url: https://flextype.org
+  url: https://awilum.github.io/flextype
 homepage: https://github.com/flextype-plugins/sitemap
 documentation: https://github.com/flextype-plugins/sitemap
 changelog: https://github.com/flextype-plugins/sitemap/blob/master/CHANGELOG.md
