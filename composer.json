@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Sergey Romanenko",
-            "email": "sergey.romanenko@flextype.org",
+            "email": "awilum@msn.com",
             "homepage": "https://flextype.org"
         }
     ],
@@ -17,9 +17,7 @@
     },
     "require": {
         "php": ">=7.4.0",
-        "ext-json": "*",
-        "flextype-components/arrays" : "3.0.1",
-        "flextype-components/filesystem": "2.0.8"
+        "ext-json": "*"
     },
     "config": {
         "apcu-autoloader": true,
@@ -30,7 +28,7 @@
     },
     "autoload": {
         "classmap": [
-            "app"
+            "src"
         ]
     }
 }

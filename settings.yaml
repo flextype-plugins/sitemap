@@ -5,7 +5,7 @@ enabled: true
 priority: 100
 
 # Route
-route: sitemap.xml
+route: /sitemap.xml
 
 # Ignore list
 ignore:
@@ -16,7 +16,7 @@ additions:
 # Default values for entries
 default:
   changefreq: daily
-  priority: !!float 1
+  priority: 1.0
 
 # Date format
 date_format: Y-m-d

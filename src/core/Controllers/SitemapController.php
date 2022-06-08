@@ -2,9 +2,8 @@
 
 namespace Flextype\Plugin\Sitemap\Controllers;
 
-use Flextype\Component\Arrays\Arrays;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class SitemapController
 {
@@ -21,16 +20,15 @@ class SitemapController
      *
      * @param Request  $request  PSR7 request
      * @param Response $response PSR7 response
-     * @return Response
+     * @param array    $args     Args
      */
-    public function index(Request $request, Response $response) : Response
+    public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $sitemap  = [];
 
-        $entries = entries()
-                        ->fetch('', ['collection' => true, 'find' => ['depth' => '> 0']])
-                        ->sortBy('modified_at', 'asc')
-                        ->all();
+        $entries = entries()->fetch('', ['collection' => true, 'find' => ['depth' => '> 0']])
+                            ->sortBy('modified_at', 'asc')
+                            ->toArray();
 
         foreach ($entries as $entry) {
 
@@ -93,11 +91,14 @@ class SitemapController
         // Set response header
         $response = $response->withHeader('Content-Type', 'application/xml');
 
-        return twig()->render(
-            $response,
-            'plugins/sitemap/templates/index.html',
+        $renderedTemplate = twig()->fetch(
+            'plugins/sitemap/views/templates/index.html',
             [
                 'sitemap' => self::$sitemap
             ]);
+           
+        $response->getBody()->write($renderedTemplate);
+        $response = $response->withStatus(200);
+        return $response;
     }
 }

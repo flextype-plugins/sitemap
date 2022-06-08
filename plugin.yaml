@@ -1,9 +1,9 @@
 name: Sitemap
-version: 2.10.0
+version: 3.0.0
 description: Provide automatically generated XML sitemap.
 author:
   name: Sergey Romanenko
-  email: sergey.romanenko@flextype.org
+  email: awilum@msn.com
   url: https://flextype.org
 homepage: https://github.com/flextype-plugins/sitemap
 documentation: https://github.com/flextype-plugins/sitemap
@@ -15,5 +15,5 @@ icon:
 license: MIT
 
 dependencies:
-  flextype: 0.9.16
-  twig: '>=2.0.0'
+  flextype: "^1.0.0-alpha.1"
+  twig: "^3.0.0"
