@@ -36,7 +36,9 @@ class SitemapGenerateCommand extends Command
     {
         $result = Command::SUCCESS;
         
-        $saveResult = filesystem()->file(ROOT_DIR . '/sitemap.xml')->put((new Sitemap())->fetch());
+        filesystem()->directory(ROOT_DIR . '/' . registry()->get('plugins.sitemap.settings.sitemap_path'))->ensureExists(0755, true);
+
+        $saveResult = filesystem()->file(ROOT_DIR . '/' . registry()->get('plugins.sitemap.settings.sitemap_path') . '/sitemap.xml')->put((new Sitemap())->fetch());
 
         if ($saveResult) {
             $output->write(
