@@ -19,7 +19,7 @@ The following dependencies need to be downloaded and installed for Sitemap Plugi
 
 1. Download & Install all required dependencies.
 2. Create new folder `project/plugins/sitemap`
-3. Download Sitemap Plugin and unzip plugin content to the folder `project/plugins/sitemap`
+3. Download [Sitemap Plugin](https://github.com/flextype-plugins/sitemap/releases) and unzip plugin content to the folder `project/plugins/sitemap`
 
 ## Resources
 * [Documentation](https://awilum.github.io/flextype/downloads/extend/plugins/sitemap)
