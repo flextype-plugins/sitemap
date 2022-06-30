@@ -30,15 +30,29 @@ class SitemapGenerateCommand extends Command
     {
         $this->setName('sitemap:generate');
         $this->setDescription('Generate sitemap.');
+        $this->addOption('sitemap-path', null, InputOption::VALUE_REQUIRED, 'Destination for generated static sitemap file (without trailing and without starting slash)');
+        $this->addOption('site-url', null, InputOption::VALUE_REQUIRED, 'Sit url (without trailing slash).');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $result = Command::SUCCESS;
-        
-        filesystem()->directory(ROOT_DIR . '/' . registry()->get('plugins.sitemap.settings.static.sitemap_path'))->ensureExists(0755, true);
+       
+        if ($input->getOption('sitemap-path')) {
+            $staticSitemapPath = ROOT_DIR . '/' . $input->getOption('sitemap-path');
+        } else {
+            $staticSitemapPath = ROOT_DIR . '/' . registry()->get('plugins.sitemap.settings.static.sitemap_path');
+        }
 
-        $saveResult = filesystem()->file(ROOT_DIR . '/' . registry()->get('plugins.sitemap.settings.static.sitemap_path') . '/sitemap.xml')->put((new Sitemap())->fetch());
+        if ($input->getOption('site-url')) {
+            registry()->set('flextype.settings.base_url', $input->getOption('site-url'));
+            registry()->set('flextype.settings.base_path', '');
+        } else {
+            registry()->set('flextype.settings.base_url', registry()->get('plugins.sitemap.settings.static.site_url'));
+            registry()->set('flextype.settings.base_path', '');
+        }
+
+        $saveResult = filesystem()->file($staticSitemapPath . '/sitemap.xml')->put((new Sitemap())->fetch());
 
         if ($saveResult) {
             $output->write(
