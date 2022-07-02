@@ -38,12 +38,10 @@ class SitemapGenerateCommand extends Command
     {
         $result = Command::SUCCESS;
        
-        if ($input->getOption('sitemap-path')) {
-            $staticSitemapPath = ROOT_DIR . '/' . $input->getOption('sitemap-path');
-        } else {
-            $staticSitemapPath = ROOT_DIR . '/' . registry()->get('plugins.sitemap.settings.static.sitemap_path');
-        }
+        $sitemapPath = $input->getOption('sitemap-path') ? $input->getOption('sitemap-path') : registry()->get('plugins.sitemap.settings.static.sitemap_path');
 
+        $staticSitemapPath = ROOT_DIR . '/' . $sitemapPath;
+        
         if ($input->getOption('site-url')) {
             registry()->set('flextype.settings.base_url', $input->getOption('site-url'));
             registry()->set('flextype.settings.base_path', '');
@@ -57,16 +55,16 @@ class SitemapGenerateCommand extends Command
         if ($saveResult) {
             $output->write(
                 renderToString(
-                    div('Success: Sitemap successfully generated.', 
-                        'bg-success px-2 py-1')
+                    div('Sitemap ' . strings($sitemapPath . '/sitemap.xml')->reduceSlashes()->trim('/') . ' generated successfully.', 
+                        'color-success px-2 py-1')
                 )
             );
             $result = Command::SUCCESS;
         } else {
             $output->write(
                 renderToString(
-                    div('Failure: Sitemap was not found generated.', 
-                        'bg-danger px-2 py-1')
+                    div('Sitemap was not generated.', 
+                        'color-danger px-2 py-1')
                 )
             );
             $result = Command::FAILURE;
