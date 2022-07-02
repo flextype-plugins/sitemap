@@ -3,13 +3,13 @@
     "type": "project",
     "description": "Sitemap plugin provide automatically generated XML sitemap for Flextype.",
     "keywords": ["sitemap", "plugin", "flextype"],
-    "homepage": "https://github.com/flextype-plugins/sitemap",
+    "homepage": "https://awilum.github.io/flextype/downloads/extend/plugins/sitemap",
     "license": "MIT",
     "authors": [
         {
             "name": "Sergey Romanenko",
             "email": "awilum@msn.com",
-            "homepage": "https://awilum.github.io/flextype"
+            "homepage": "https://awilum.github.io"
         }
     ],
     "support": {
