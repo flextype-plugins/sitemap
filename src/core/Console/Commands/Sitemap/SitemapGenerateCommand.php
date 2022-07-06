@@ -23,6 +23,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Flextype\Plugin\Sitemap\Sitemap;
 use function Thermage\div;
 use function Thermage\renderToString;
+use function Flextype\registry;
+use function Glowy\Filesystem\filesystem;
 
 class SitemapGenerateCommand extends Command
 {
@@ -40,7 +42,7 @@ class SitemapGenerateCommand extends Command
        
         $sitemapPath = $input->getOption('sitemap-path') ? $input->getOption('sitemap-path') : registry()->get('plugins.sitemap.settings.static.sitemap_path');
 
-        $staticSitemapPath = ROOT_DIR . '/' . $sitemapPath;
+        $staticSitemapPath = FLEXTYPE_ROOT_DIR . '/' . $sitemapPath;
         
         if ($input->getOption('site-url')) {
             registry()->set('flextype.settings.base_url', $input->getOption('site-url'));

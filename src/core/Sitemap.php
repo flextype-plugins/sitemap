@@ -2,6 +2,11 @@
 
 namespace Flextype\Plugin\Sitemap;
 
+use function Flextype\entries;
+use function Flextype\registry;
+use function Flextype\emitter;
+use function Flextype\twig;
+
 class Sitemap {
     public function fetch()
     {
