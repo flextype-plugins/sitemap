@@ -25,6 +25,7 @@ use function Thermage\div;
 use function Thermage\renderToString;
 use function Flextype\registry;
 use function Glowy\Filesystem\filesystem;
+use function Glowy\Strings\strings;
 
 class SitemapGenerateCommand extends Command
 {

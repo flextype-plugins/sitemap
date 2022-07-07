@@ -5,7 +5,8 @@ namespace Flextype\Plugin\Sitemap;
 use function Flextype\entries;
 use function Flextype\registry;
 use function Flextype\emitter;
-use function Flextype\twig;
+use function Flextype\Plugin\Twig\twig;
+use function Glowy\Strings\strings;
 
 class Sitemap {
     public function fetch()
