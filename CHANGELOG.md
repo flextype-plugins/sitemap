@@ -1,3 +1,10 @@
+<a name="3.0.1"></a>
+# [3.0.1](https://github.com/flextype-plugins/sitemap/compare/v3.0.0...v3.0.1) (2022-07-11)
+
+### Bug Fixes
+
+* **console** fix issue with sitemap generate command if destination directory does not exist.
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/flextype-plugins/sitemap/compare/v2.10.0...v3.0.0) (2022-07-11)
 
