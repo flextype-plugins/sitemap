@@ -1,3 +1,10 @@
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/flextype-plugins/sitemap/compare/v3.0.1...v3.1.0) (2022-09-13)
+
+### Features
+
+* **core** Update code base for new Flextype 1.0.0-alpha.2 release.
+
 <a name="3.0.1"></a>
 # [3.0.1](https://github.com/flextype-plugins/sitemap/compare/v3.0.0...v3.0.1) (2022-07-11)
 

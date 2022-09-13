@@ -1,5 +1,5 @@
 name: Sitemap
-version: 3.0.1
+version: 3.1.0
 description: Provide automatically generated XML sitemap.
 author:
   name: Sergey Romanenko
@@ -16,5 +16,5 @@ category: seo
 license: MIT
 
 dependencies:
-  flextype: "^1.0.0-alpha.1"
-  twig: "^3.0.0"
+  flextype: "^1.0.0-alpha.2"
+  twig: "^3.1.0"
