@@ -29,6 +29,9 @@ default:
 # Date format
 date_format: Y-m-d
 
+# Trailing slash
+trailing_slash: false
+
 # Settings for static sitemap generation
 static:
 

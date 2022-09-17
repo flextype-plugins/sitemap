@@ -18,7 +18,7 @@ class SitemapController
     public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $response = $response->withHeader('Content-Type', 'application/xml');                
-        $response->getBody()->write((new Sitemap)->fetch());
+        $response->getBody()->write((new Sitemap)->fetch(trailingSlash: registry()->get('plugins.sitemap.settings.trailing_slash')));
         $response = $response->withStatus(200);
         return $response;
     }

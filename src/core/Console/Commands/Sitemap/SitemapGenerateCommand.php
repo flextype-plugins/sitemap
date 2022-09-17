@@ -56,7 +56,7 @@ class SitemapGenerateCommand extends Command
         filesystem()->directory($staticSitemapPath)->ensureExists(0755, true);
         filesystem()->directory($staticSitemapPath . '/' . FLEXTYPE_PROJECT_NAME . '/plugins/sitemap/views/templates')->ensureExists(0755, true);
 
-        $saveResult = filesystem()->file($staticSitemapPath . '/sitemap.xml')->put((new Sitemap())->fetch());
+        $saveResult = filesystem()->file($staticSitemapPath . '/sitemap.xml')->put((new Sitemap())->fetch(trailingSlash: true));
         $saveResult = filesystem()->file(FLEXTYPE_PATH_PROJECT . '/plugins/sitemap/views/templates/sitemap.xsl')->copy($staticSitemapPath . '/' . FLEXTYPE_PROJECT_NAME . '/plugins/sitemap/views/templates/sitemap.xsl');
 
         if ($saveResult) {
